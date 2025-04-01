@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Senhas Seguras</title>
+    <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/styles/style.css">
+</head>
+
+<body>
+    <main class="container">
+        <header class="cabecalho">
+            <h1 class="titulo-principal">Gerador de Senhas Seguras</h1>
+        </header>
+
+        <section class="painel-senha">            
+            <label for="campoDeSenha" class="label-senha">Senha gerada:</label>
+            <div class="input-container">
+                <input type="text" id="campoDeSenha" class="input-senha" readonly placeholder="A senha será gerada aqui"
+                    aria-label="Campo para exibir a senha gerada">
+                <button type="button" id="botaoCopiar" class="botao-copiar" title="Copiar senha"
+                    aria-label="Copiar senha para área de transferência">
+                    📋
+                </button>
+            </div>
+        </section>
+
+        <section class="painel-opcoes">            
+            <div class="opcao">
+                <label for="comprimentoSenha" class="opcao-label">Comprimento da senha:</label>
+                <div class="controle-deslizante">
+                    <input type="range" id="comprimentoSenha" class="slider-comprimento" min="6" max="30" value="12"
+                        aria-valuenow="12" title="Ajuste o comprimento da senha">
+                    <output id="valorComprimento" class="valor-comprimento" for="comprimentoSenha">12</output>
+                </div>
+            </div>
+
+            <fieldset class="grupo-opcoes">
+                <legend class="legenda-opcoes">Tipos de caracteres:</legend>
+
+                <div class="opcao">
+                    <label for="incluirMaiusculas" class="opcao-label">
+                        <input type="checkbox" id="incluirMaiusculas" class="opcao-checkbox" checked>
+                        Incluir letras maiúsculas (A-Z)
+                    </label>
+                </div>
+
+                <div class="opcao">
+                    <label for="incluirMinusculas" class="opcao-label">
+                        <input type="checkbox" id="incluirMinusculas" class="opcao-checkbox" checked>
+                        Incluir letras minúsculas (a-z)
+                    </label>
+                </div>
+
+                <div class="opcao">
+                    <label for="incluirNumeros" class="opcao-label">
+                        <input type="checkbox" id="incluirNumeros" class="opcao-checkbox" checked>
+                        Incluir números (0-9)
+                    </label>
+                </div>
+
+                <div class="opcao">
+                    <label for="incluirSimbolos" class="opcao-label">
+                        <input type="checkbox" id="incluirSimbolos" class="opcao-checkbox" checked>
+                        Incluir símbolos (!@#$%^&*)
+                    </label>
+                </div>
+            </fieldset>
+        </section>
+
+        <button type="button" id="botaoGerar" class="botao-gerar">Gerar Senha</button>
+
+        <section class="indicador-forca">
+            <h2 class="titulo-forca">Força da senha:</h2>
+            <div class="medidor-forca">
+                <div class="barra-forca" id="barraForca" role="progressbar" aria-valuenow="2"
+                    aria-label="Medidor de força da senha" title="Medidor de força da senha"></div>
+            </div>
+            <output id="textoForca" class="texto-forca">Média</output>
+        </section>
+
+        <aside class="dicas">
+            <h3 class="titulo-dicas">Dicas para senhas seguras:</h3>
+            <ul class="lista-dicas">
+                <li class="item-dica">Use senhas com pelo menos 12 caracteres</li>
+                <li class="item-dica">Combine letras maiúsculas, minúsculas, números e símbolos</li>
+                <li class="item-dica">Evite informações pessoais como datas e nomes</li>
+                <li class="item-dica">Use senhas diferentes para cada serviço</li>
+            </ul>
+        </aside>
+    </main>
+
+    <footer class="rodape">
+        <div class="rodape-conteudo">
+            <p class="rodape-texto">Developer by Nelson Felipe</p>
+            <div class="rodape-links">
+                <a href="https://github.com/felipe-ssantos/random-password-generator" target="_blank"
+                    rel="noopener noreferrer" class="rodape-link">
+                    <svg class="rodape-icone" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                        </path>
+                    </svg>
+                    Repositório
+                </a>
+                <a href="https://nfelipe-dev.vercel.app/" target="_blank" rel="noopener noreferrer" class="rodape-link">
+                    <svg class="rodape-icone" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Portfólio
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/assets/js/main.js"></script>
+</body>
+</body>
+
+</html>

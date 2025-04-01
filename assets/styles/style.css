@@ -1,0 +1,357 @@
+:root {
+    --cor-primaria: #4e7bf2;
+    --cor-primaria-escura: #3a67d8;
+    --cor-texto: #333;
+    --cor-texto-secundaria: #555;
+    --cor-fundo: #f5f7ff;
+    --cor-borda: #ddd;
+    --cor-fundo-input: #f9f9f9;
+    --cor-sucesso: #2bd965;
+    --cor-alerta: #ffaa33;
+    --cor-erro: #ff4d4d;
+    --borda-radius: 6px;
+    --transicao-rapida: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    color: var(--cor-texto);
+    line-height: 1.5;
+}
+
+.container {
+    background-color: white;
+    border-radius: var(--borda-radius);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    flex: 1;
+}
+
+.titulo-principal {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+}
+
+.painel-senha {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+}
+
+.label-senha {
+    font-weight: bold;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.input-senha {
+    width: 100%;
+    padding: 0.75rem 2.5rem 0.75rem 1rem;
+    border: 2px solid var(--cor-borda);
+    border-radius: var(--borda-radius);
+    font-size: 1.125rem;
+    letter-spacing: 1px;
+    background-color: var(--cor-fundo-input);
+    transition: border-color var(--transicao-rapida);
+}
+
+.input-senha:focus {
+    border-color: var(--cor-primaria);
+    outline: none;
+}
+
+.botao-copiar {
+    position: absolute;
+    right: 0.625rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1.125rem;
+    color: var(--cor-texto-secundaria);
+    transition: color var(--transicao-rapida);
+}
+
+.botao-copiar:hover {
+    color: var(--cor-primaria);
+}
+
+.painel-opcoes {
+    margin-bottom: 1.25rem;
+}
+
+.grupo-opcoes {
+    border: none;
+    padding: 0;
+    margin: 0 0 1rem;
+}
+
+.legenda-opcoes {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.opcao {
+    margin-bottom: 0.9375rem;
+}
+
+.opcao-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: var(--cor-texto-secundaria);
+}
+
+.opcao-checkbox {
+    margin-right: 0.625rem;
+    width: 1.125rem;
+    height: 1.125rem;
+    accent-color: var(--cor-primaria);
+}
+
+.controle-deslizante {
+    display: flex;
+    align-items: center;
+    margin-top: 0.3125rem;
+}
+
+.slider-comprimento {
+    flex: 1;
+    height: 0.5rem;
+    appearance: none;
+    background: var(--cor-borda);
+    border-radius: 0.25rem;
+    outline: none;
+    cursor: pointer;
+}
+
+.slider-comprimento::-webkit-slider-thumb {
+    appearance: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    background: var(--cor-primaria);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.valor-comprimento {
+    margin-left: 0.625rem;
+    font-weight: bold;
+    min-width: 1.875rem;
+    text-align: center;
+}
+
+.botao-gerar {
+    width: 100%;
+    padding: 0.9375rem;
+    background-color: var(--cor-primaria);
+    color: white;
+    border: none;
+    border-radius: var(--borda-radius);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color var(--transicao-rapida);
+    margin-bottom: 1.25rem;
+}
+
+.botao-gerar:hover {
+    background-color: var(--cor-primaria-escura);
+}
+
+.indicador-forca {
+    margin-bottom: 1.5rem;
+}
+
+.titulo-forca {
+    font-size: 1rem;
+    font-weight: normal;
+    margin-bottom: 0.625rem;
+}
+
+.medidor-forca {
+    height: 0.625rem;
+    background-color: var(--cor-borda);
+    border-radius: 0.3125rem;
+    margin: 0.625rem 0;
+    overflow: hidden;
+}
+
+.barra-forca {
+    height: 100%;
+    width: 0%;
+    border-radius: 0.3125rem;
+    transition: width var(--transicao-rapida), background-color var(--transicao-rapida);
+}
+
+.texto-forca {
+    font-weight: bold;
+}
+
+.senha-fraca {
+    background-color: var(--cor-erro);
+    width: 25%;
+}
+
+.senha-media {
+    background-color: var(--cor-alerta);
+    width: 50%;
+}
+
+.senha-forte {
+    background-color: var(--cor-sucesso);
+    width: 75%;
+}
+
+.senha-muito-forte {
+    background-color: var(--cor-sucesso);
+    width: 100%;
+}
+
+.dicas {
+    background-color: var(--cor-fundo);
+    padding: 0.9375rem;
+    border-radius: var(--borda-radius);
+    margin-top: 1.25rem;
+}
+
+.titulo-dicas {
+    margin-bottom: 0.625rem;
+    font-size: 1rem;
+}
+
+.lista-dicas {
+    padding-left: 1.25rem;
+}
+
+.item-dica {
+    color: var(--cor-texto-secundaria);
+    margin-bottom: 0.3125rem;
+    font-size: 0.875rem;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Rodapé */
+.rodape {
+    margin: 2rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--cor-borda);
+}
+
+.rodape-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.rodape-texto {
+    color: var(--cor-texto-secundaria);
+    font-size: 0.875rem;
+}
+
+.rodape-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.rodape-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--cor-primaria);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color var(--transicao-rapida);
+}
+
+.rodape-link:hover {
+    color: var(--cor-primaria-escura);
+    text-decoration: underline;
+}
+
+.rodape-icone {
+    width: 1rem;
+    height: 1rem;
+}
+
+@media (max-width: 480px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 1.25rem;
+    }
+
+    .titulo-principal {
+        font-size: 1.25rem;
+    }
+
+    .input-senha {
+        font-size: 1rem;
+    }
+
+    .rodape {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+    }
+
+    .rodape-conteudo {
+        gap: 0.5rem;
+    }
+
+    .rodape-links {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: center;
+        width: 100%;
+    }
+
+    .rodape-link {
+        font-size: 0.8125rem;
+        justify-content: center;
+        width: 100%;
+        padding: 0.25rem 0;
+    }
+
+    .rodape-texto {
+        text-align: center;
+        font-size: 0.8125rem;
+    }
+}
