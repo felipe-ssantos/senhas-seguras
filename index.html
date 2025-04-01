@@ -7,33 +7,45 @@
     <title>Gerador de Senhas Seguras</title>
     <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="/assets/styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
+    <div class="background-animation"></div>
     <main class="container">
         <header class="cabecalho">
+            <img src="https://cdn-icons-png.flaticon.com/512/3064/3064155.png" alt="Ícone de segurança" class="logo">
             <h1 class="titulo-principal">Gerador de Senhas Seguras</h1>
+            <p class="subtitulo">Proteja suas contas com senhas fortes e únicas</p>
         </header>
 
-        <section class="painel-senha">            
+        <section class="painel-senha">
             <label for="campoDeSenha" class="label-senha">Senha gerada:</label>
             <div class="input-container">
-                <input type="text" id="campoDeSenha" class="input-senha" readonly placeholder="A senha será gerada aqui"
+                <input type="text" id="campoDeSenha" class="input-senha" readonly placeholder="Clique em 'Gerar Senha'"
                     aria-label="Campo para exibir a senha gerada">
                 <button type="button" id="botaoCopiar" class="botao-copiar" title="Copiar senha"
                     aria-label="Copiar senha para área de transferência">
-                    📋
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
                 </button>
+                <div class="copiado-feedback" id="copiadoFeedback">Copiado!</div>
             </div>
         </section>
 
-        <section class="painel-opcoes">            
+        <section class="painel-opcoes">
             <div class="opcao">
-                <label for="comprimentoSenha" class="opcao-label">Comprimento da senha:</label>
+                <label for="comprimentoSenha" class="opcao-label">Comprimento da senha: <span id="valorComprimento"
+                        class="valor-comprimento">12</span></label>
                 <div class="controle-deslizante">
                     <input type="range" id="comprimentoSenha" class="slider-comprimento" min="6" max="30" value="12"
                         aria-valuenow="12" title="Ajuste o comprimento da senha">
-                    <output id="valorComprimento" class="valor-comprimento" for="comprimentoSenha">12</output>
                 </div>
             </div>
 
@@ -43,58 +55,89 @@
                 <div class="opcao">
                     <label for="incluirMaiusculas" class="opcao-label">
                         <input type="checkbox" id="incluirMaiusculas" class="opcao-checkbox" checked>
-                        Incluir letras maiúsculas (A-Z)
+                        <span class="checkbox-custom"></span>
+                        Letras maiúsculas (A-Z)
                     </label>
                 </div>
 
                 <div class="opcao">
                     <label for="incluirMinusculas" class="opcao-label">
                         <input type="checkbox" id="incluirMinusculas" class="opcao-checkbox" checked>
-                        Incluir letras minúsculas (a-z)
+                        <span class="checkbox-custom"></span>
+                        Letras minúsculas (a-z)
                     </label>
                 </div>
 
                 <div class="opcao">
                     <label for="incluirNumeros" class="opcao-label">
                         <input type="checkbox" id="incluirNumeros" class="opcao-checkbox" checked>
-                        Incluir números (0-9)
+                        <span class="checkbox-custom"></span>
+                        Números (0-9)
                     </label>
                 </div>
 
                 <div class="opcao">
                     <label for="incluirSimbolos" class="opcao-label">
                         <input type="checkbox" id="incluirSimbolos" class="opcao-checkbox" checked>
-                        Incluir símbolos (!@#$%^&*)
+                        <span class="checkbox-custom"></span>
+                        Símbolos (!@#$%^&*)
                     </label>
                 </div>
             </fieldset>
         </section>
 
-        <button type="button" id="botaoGerar" class="botao-gerar">Gerar Senha</button>
+        <button type="button" id="botaoGerar" class="botao-gerar">
+            <span class="botao-texto">Gerar Senha</span>
+            <span class="botao-icone">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4">
+                    </path>
+                </svg>
+            </span>
+        </button>
 
         <section class="indicador-forca">
-            <h2 class="titulo-forca">Força da senha:</h2>
+            <div class="cabecalho-forca">
+                <h2 class="titulo-forca">Força da senha:</h2>
+                <output id="textoForca" class="texto-forca">Média</output>
+            </div>
             <div class="medidor-forca">
                 <div class="barra-forca" id="barraForca" role="progressbar" aria-valuenow="2"
                     aria-label="Medidor de força da senha" title="Medidor de força da senha"></div>
             </div>
-            <output id="textoForca" class="texto-forca">Média</output>
+            <div class="legenda-forca">
+                <span>Fraca</span>
+                <span>Média</span>
+                <span>Forte</span>
+                <span>Muito Forte</span>
+            </div>
         </section>
 
         <aside class="dicas">
-            <h3 class="titulo-dicas">Dicas para senhas seguras:</h3>
+            <h3 class="titulo-dicas">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                Dicas para senhas seguras:
+            </h3>
             <ul class="lista-dicas">
                 <li class="item-dica">Use senhas com pelo menos 12 caracteres</li>
                 <li class="item-dica">Combine letras maiúsculas, minúsculas, números e símbolos</li>
                 <li class="item-dica">Evite informações pessoais como datas e nomes</li>
                 <li class="item-dica">Use senhas diferentes para cada serviço</li>
+                <li class="item-dica">Considere usar um gerenciador de senhas</li>
             </ul>
         </aside>
     </main>
 
     <footer class="rodape">
         <div class="rodape-conteudo">
-            <p class="rodape-texto">Developer by Nelson Felipe</p>
+            <p class="rodape-texto">Desenvolvido por <strong>Nelson Felipe</strong></p>
             <div class="rodape-links">
                 <a href="https://github.com/felipe-ssantos/random-password-generator" target="_blank"
                     rel="noopener noreferrer" class="rodape-link">
@@ -119,7 +162,6 @@
     </footer>
 
     <script type="module" src="/assets/js/main.js"></script>
-</body>
 </body>
 
 </html>
