@@ -1,8 +1,8 @@
 # Senhas Seguras 🔐
 
-![GitHub last commit](https://img.shields.io/github/last-commit/felipe-ssantos/random-password-generator)
-![GitHub repo size](https://img.shields.io/github/repo-size/felipe-ssantos/random-password-generator)
-![GitHub license](https://img.shields.io/github/license/felipe-ssantos/random-password-generator)
+![GitHub last commit](https://img.shields.io/github/last-commit/felipe-ssantos/senhas-seguras)
+![GitHub repo size](https://img.shields.io/github/repo-size/felipe-ssantos/senhas-seguras)
+![GitHub license](https://img.shields.io/github/license/felipe-ssantos/senhas-seguras/)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)
 ![HTML5](https://img.shields.io/badge/HTML-5-orange)
 ![CSS3](https://img.shields.io/badge/CSS-3-blue)
