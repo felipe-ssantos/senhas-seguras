@@ -13,10 +13,9 @@ Um gerador de senhas seguras desenvolvido com JavaScript vanilla/puro, HTML5 e C
 
 ![Preview do Gerador de Senhas](./assets/img/security_passwords_preview.jpeg)
 
+
 <p align="center">
-
   <a href="https://senhas-seguras-nf.vercel.app/"><strong>➥ Live Demo</strong></a>
-
 </p>
 
 ## 🚀 Funcionalidades
