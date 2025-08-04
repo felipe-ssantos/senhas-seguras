@@ -9,6 +9,16 @@
 
 Um gerador de senhas seguras desenvolvido com JavaScript vanilla/puro, HTML5 e CSS3. Criado para fornecer senhas robustas e configuráveis, com feedback visual em tempo real sobre a força da senha gerada.
 
+## 🎥 Preview
+
+![Preview do Gerador de Senhas](./assets/img/security_passwords_preview.jpeg)
+
+<p align="center">
+
+  <a href="https://senhas-seguras-nf.vercel.app/"><strong>➥ Live Demo</strong></a>
+
+</p>
+
 ## 🚀 Funcionalidades
 
 - ✅ Geração de senhas aleatórias com até 30 caracteres
